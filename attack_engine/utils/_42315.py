@@ -32,3 +32,6 @@ Tested on:
 - Windows XP SP3 x86
 - Windows 2000 SP4 x86
 '''
+
+USERNAME = ''
+PASSWORD = ''
