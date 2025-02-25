@@ -44,4 +44,8 @@ A transaction with empty setup:
 
 Note: method name is from NSA eternalromance
 
+For Windows 7 and later, it is good to use matched pair method (one is large pool and another one is fit
+for freed pool from large pool). Additionally, the exploit does the information leak to check transactions
+alignment before doing OOB write. So this exploit should never crash a target against Windows 7 and later.
+
 '''
