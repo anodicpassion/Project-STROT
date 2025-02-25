@@ -35,3 +35,11 @@ Tested on:
 
 USERNAME = ''
 PASSWORD = ''
+
+'''
+A transaction with empty setup:
+- it is allocated from paged pool (same as other transaction types) on Windows 7 and later
+- it is allocated from private heap (RtlAllocateHeap()) with no on use it on Windows Vista and earlier
+- no lookaside or caching method for allocating it
+
+'''
