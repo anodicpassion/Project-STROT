@@ -42,4 +42,6 @@ A transaction with empty setup:
 - it is allocated from private heap (RtlAllocateHeap()) with no on use it on Windows Vista and earlier
 - no lookaside or caching method for allocating it
 
+Note: method name is from NSA eternalromance
+
 '''
