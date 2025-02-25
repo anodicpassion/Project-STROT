@@ -48,4 +48,11 @@ For Windows 7 and later, it is good to use matched pair method (one is large poo
 for freed pool from large pool). Additionally, the exploit does the information leak to check transactions
 alignment before doing OOB write. So this exploit should never crash a target against Windows 7 and later.
 
+For Windows Vista and earlier, matched pair method is impossible because we cannot allocate transaction size
+smaller than PAGE_SIZE (Windows XP can but large page pool does not split the last page of allocation). But
+a transaction with empty setup is allocated on private heap (it is created by RtlCreateHeap() on initialing server).
+Only this transaction type uses this heap. Normally, no one uses this transaction type. So transactions alignment
+in this private heap should be very easy and very reliable (fish in a barrel in NSA eternalromance). The drawback
+of this method is we cannot do information leak to verify transactions alignment before OOB write.
+So this exploit has a chance to crash target same as NSA eternalromance against Windows Vista and earlier.
 '''
