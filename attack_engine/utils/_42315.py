@@ -56,3 +56,10 @@ in this private heap should be very easy and very reliable (fish in a barrel in 
 of this method is we cannot do information leak to verify transactions alignment before OOB write.
 So this exploit has a chance to crash target same as NSA eternalromance against Windows Vista and earlier.
 '''
+
+'''
+Reversed from: SrvAllocateSecurityContext() and SrvImpersonateSecurityContext()
+
+
+
+'''
