@@ -59,7 +59,7 @@ So this exploit has a chance to crash target same as NSA eternalromance against 
 
 '''
 Reversed from: SrvAllocateSecurityContext() and SrvImpersonateSecurityContext()
-
+win7 x64
 
 
 '''
