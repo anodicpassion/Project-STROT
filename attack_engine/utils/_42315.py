@@ -60,6 +60,18 @@ So this exploit has a chance to crash target same as NSA eternalromance against 
 '''
 Reversed from: SrvAllocateSecurityContext() and SrvImpersonateSecurityContext()
 win7 x64
+struct SrvSecContext {
+	DWORD xx1; // second WORD is size
+	DWORD refCnt;
+	PACCESS_TOKEN Token;  // 0x08
+	DWORD xx2;
+	BOOLEAN CopyOnOpen; // 0x14
+	BOOLEAN EffectiveOnly;
+	WORD xx3;
+	DWORD ImpersonationLevel; // 0x18
+	DWORD xx4;
+	BOOLEAN UsePsImpersonateClient; // 0x20
+}
 
 
 '''
