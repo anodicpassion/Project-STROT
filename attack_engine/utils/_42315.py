@@ -72,6 +72,21 @@ struct SrvSecContext {
 	DWORD xx4;
 	BOOLEAN UsePsImpersonateClient; // 0x20
 }
+win2012 x64
+struct SrvSecContext {
+	DWORD xx1; // second WORD is size
+	DWORD refCnt;
+	QWORD xx2;
+	QWORD xx3;
+	PACCESS_TOKEN Token;  // 0x18
+	DWORD xx4;
+	BOOLEAN CopyOnOpen; // 0x24
+	BOOLEAN EffectiveOnly;
+	WORD xx3;
+	DWORD ImpersonationLevel; // 0x28
+	DWORD xx4;
+	BOOLEAN UsePsImpersonateClient; // 0x30
+}
 
 
 '''
