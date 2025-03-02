@@ -88,5 +88,13 @@ struct SrvSecContext {
 	BOOLEAN UsePsImpersonateClient; // 0x30
 }
 
-
+SrvImpersonateSecurityContext() is used in Windows Vista and later before doing any operation as logged on user.
+It called PsImperonateClient() if SrvSecContext.UsePsImpersonateClient is true. 
+From https://msdn.microsoft.com/en-us/library/windows/hardware/ff551907(v=vs.85).aspx, if Token is NULL,
+PsImperonateClient() ends the impersonation. Even there is no impersonation, the PsImperonateClient() returns
+STATUS_SUCCESS when Token is NULL.
+If we can overwrite Token to NULL and UsePsImpersonateClient to true, a running thread will use primary token (SYSTEM)
+to do all SMB operations.
+Note: for Windows 2003 and earlier, the exploit modify token user and groups in PCtxtHandle to get SYSTEM because only
+  ImpersonateSecurityContext() is used in these Windows versions.
 '''
