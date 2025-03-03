@@ -89,3 +89,22 @@ WIN8_32_SESSION_INFO = {
 	'FAKE_SECCTX': pack('<IIIIIIIIB', 0x24022a, 1, 0, 0, 0, 0, 2, 0, 1),
 	'SECCTX_SIZE': 0x24,
 }
+
+# win 2003 (xp 64 bit is win 2003)
+WIN2K3_64_SESSION_INFO = {
+	'SESSION_ISNULL_OFFSET': 0xba,
+	'SESSION_SECCTX_OFFSET': 0xa0,  # Win2k3 has another struct to keep PCtxtHandle (similar to 2008+)
+	'SECCTX_PCTXTHANDLE_OFFSET': 0x10,  # PCtxtHandle is at offset 0x8 but only upperPart is needed
+	'PCTXTHANDLE_TOKEN_OFFSET': 0x40,
+	'TOKEN_USER_GROUP_CNT_OFFSET': 0x4c,
+	'TOKEN_USER_GROUP_ADDR_OFFSET': 0x68,
+}
+
+WIN2K3_32_SESSION_INFO = {
+	'SESSION_ISNULL_OFFSET': 0x96,
+	'SESSION_SECCTX_OFFSET': 0x80,  # Win2k3 has another struct to keep PCtxtHandle (similar to 2008+)
+	'SECCTX_PCTXTHANDLE_OFFSET': 0xc,  # PCtxtHandle is at offset 0x8 but only upperPart is needed
+	'PCTXTHANDLE_TOKEN_OFFSET': 0x24,
+	'TOKEN_USER_GROUP_CNT_OFFSET': 0x4c,
+	'TOKEN_USER_GROUP_ADDR_OFFSET': 0x68,
+}
