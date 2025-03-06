@@ -44,6 +44,7 @@ def main(host: str = ""):
             print('Send `exit` to quit shell')
             print("__________________________")
             tn2.interact()
+
         except Exception as es:
             print("\n" + "-" * 20, "\nException raised:\n", es)
             print("\n" + "-" * 20, f"\n{exp_try}]Retrying...")
