@@ -368,7 +368,7 @@ class STROTCLI:
 
 if __name__ == "__main__":
 
-    with open("owl-anime/owl", "rb") as adf:
+    with open("splash/owl", "rb") as adf:
         animation = pickle.load(adf)
     os.system('clear')
     k = 0
