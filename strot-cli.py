@@ -382,8 +382,8 @@ def _zoom_out(ratio:int = 3):
 
 if __name__ == "__main__":
     os.system('clear')
-    zoom_ratio = 10
-    lateral_shift = 50
+    zoom_ratio = 8
+    lateral_shift = 30
     _zoom_out(zoom_ratio)
     time.sleep(1)
     splash = os.listdir("splash")
@@ -397,14 +397,14 @@ if __name__ == "__main__":
             print("\n\n\n\n")
             print("\n\n\n\n")
             for j in animation[i].split("\n"):
-                print("\t"*lateral_shift, j)
+                print("     "*lateral_shift + j)
             print("\n\n\n\n")
             print(art.text2art("     "*lateral_shift +
-                               "            S T R O T   -   a   R e d   T e a m i n g   T o o l   . . .", ))
+                               "S T R O T   -   a   R e d   T e a m i n g   T o o l   . . .", ))
             time.sleep(0.2)
             k += 1
     os.system("clear")
-    time.sleep(0.5)
+    time.sleep(0.1)
     _zoom_in(zoom_ratio)
     print("starting STROT CLI v2.1.3")
     print("Stealthy Tool for Root Oriented Tunneling - A RED TEAMING TOOL")
