@@ -8,7 +8,7 @@ from scapy.all import ARP, Ether, srp
 import nmap
 from attack_engine.attack_engine import AttackEngine
 from attack_engine.exploit_search import search_exploit
-
+import pickle, time, os
 
 class STROTCLI:
     def __init__(self, *args, **kwargs) -> None:
@@ -367,8 +367,18 @@ class STROTCLI:
 
 
 if __name__ == "__main__":
+
+    with open("splash/anime_dump", "rb") as adf:
+        animation = pickle.load(adf)
     os.system('clear')
-    print("starting STROT CLI v2.1.3")
-    print("Stealthy Tool for Root Oriented Tunneling - A RED TEAMING TOOL")
-    time.sleep(2)
+    k = 0
+    while k < 11:
+        for i in range(1, 11, 1):
+            os.system("clear")
+            print(animation[i])
+            print("starting STROT CLI v2.1.3")
+            print("Stealthy Tool for Root Oriented Tunneling - A RED TEAMING TOOL")
+            time.sleep(0.2)
+            k += 1
+    time.sleep(1)
     obj = STROTCLI()
