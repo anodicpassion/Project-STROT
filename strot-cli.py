@@ -1,4 +1,5 @@
 import os
+import random
 import socket
 import sys
 import json
@@ -367,8 +368,9 @@ class STROTCLI:
 
 
 if __name__ == "__main__":
-
-    with open("splash/owl", "rb") as adf:
+    splash = os.listdir("splash")
+    splash = splash[random.randint(0, len(splash)-1)]
+    with open(f"splash/{splash}", "rb") as adf:
         animation = pickle.load(adf)
     os.system('clear')
     k = 0
