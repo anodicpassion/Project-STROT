@@ -382,8 +382,8 @@ def _zoom_out(ratio:int = 3):
 
 if __name__ == "__main__":
     os.system('clear')
-    zoom_ratio = 8
-    lateral_shift = 30
+    zoom_ratio = 7
+    lateral_shift = 20
     _zoom_out(zoom_ratio)
     time.sleep(1)
     splash = os.listdir("splash")
@@ -395,14 +395,14 @@ if __name__ == "__main__":
         for i in range(1, 9, 1):
             os.system("clear")
             print("\n\n\n\n")
-            print("\n\n\n\n")
             for j in animation[i].split("\n"):
                 print("     "*lateral_shift + j)
             print("\n\n\n\n")
-            print(art.text2art("     "*lateral_shift +
+            print(art.text2art("     "*(lateral_shift-5) +
                                "S T R O T   -   a   R e d   T e a m i n g   T o o l   . . .", ))
             time.sleep(0.2)
             k += 1
+    time.sleep(1)
     os.system("clear")
     time.sleep(0.1)
     _zoom_in(zoom_ratio)
