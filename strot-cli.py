@@ -10,6 +10,7 @@ import nmap
 from attack_engine.attack_engine import AttackEngine
 from attack_engine.exploit_search import search_exploit
 import pickle, time, os
+import pyautogui
 
 class STROTCLI:
     def __init__(self, *args, **kwargs) -> None:
@@ -368,11 +369,20 @@ class STROTCLI:
 
 
 if __name__ == "__main__":
+    os.system('clear')
+    pyautogui.hotkey("ctrl", "-")
+    pyautogui.hotkey("ctrl", "-")
+    pyautogui.hotkey("ctrl", "-")
+    pyautogui.hotkey("ctrl", "-")
+    pyautogui.hotkey("ctrl", "-")
+    pyautogui.hotkey("ctrl", "-")
+    # pyautogui.hotkey("ctrl", "-")
+    # pyautogui.hotkey("ctrl", "-")
+    time.sleep(1)
     splash = os.listdir("splash")
     splash = splash[random.randint(0, len(splash)-1)]
     with open(f"splash/{splash}", "rb") as adf:
         animation = pickle.load(adf)
-    os.system('clear')
     k = 0
     while k < 11:
         for i in range(1, 11, 1):
@@ -383,4 +393,11 @@ if __name__ == "__main__":
             time.sleep(0.2)
             k += 1
     time.sleep(1)
+    pyautogui.hotkey("ctrl", "shift", "+")
+    pyautogui.hotkey("ctrl", "shift", "+")
+    pyautogui.hotkey("ctrl", "shift", "+")
+    pyautogui.hotkey("ctrl", "shift", "+")
+    pyautogui.hotkey("ctrl", "shift", "+")
+    pyautogui.hotkey("ctrl", "shift", "+")
+
     obj = STROTCLI()
