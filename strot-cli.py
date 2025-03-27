@@ -1,14 +1,18 @@
 import os
+import random
 import socket
 import sys
 import json
 import time
+import art
 from typing import Dict, Any
 from scapy.all import ARP, Ether, srp
 import nmap
 from attack_engine.attack_engine import AttackEngine
 from attack_engine.exploit_search import search_exploit
 import pickle, time, os
+import pyautogui
+
 
 class STROTCLI:
     def __init__(self, *args, **kwargs) -> None:
@@ -145,7 +149,7 @@ class STROTCLI:
                 total_exp_count += len(result['data']["RESULTS_EXPLOIT"])
             else:
                 print(f"Error: {result['message']}")
-            print("\n"+"-" * 20)
+            print("\n" + "-" * 20)
         print(f"Total Exploits found for the running services: {total_exp_count}")
         print("\n" + "-" * 20)
         print("Analysing the Exploits...")
@@ -366,19 +370,43 @@ class STROTCLI:
             }
 
 
-if __name__ == "__main__":
+def _zoom_in(ratio:int = 3):
+    for _ in range(ratio):
+        pyautogui.hotkey("ctrl", "shift", "+")
 
-    with open("splash/anime_dump", "rb") as adf:
-        animation = pickle.load(adf)
+
+def _zoom_out(ratio:int = 3):
+    for _ in range(ratio):
+        pyautogui.hotkey("ctrl", "-")
+
+
+if __name__ == "__main__":
     os.system('clear')
+    zoom_ratio = 7
+    lateral_shift = 20
+    _zoom_out(zoom_ratio)
+    time.sleep(1)
+    splash = os.listdir("splash")
+    splash = splash[random.randint(0, len(splash) - 1)]
+    with open(f"splash/{splash}", "rb") as adf:
+        animation = pickle.load(adf)
     k = 0
     while k < 11:
-        for i in range(1, 11, 1):
+        for i in range(1, 9, 1):
             os.system("clear")
-            print(animation[i])
-            print("starting STROT CLI v2.1.3")
-            print("Stealthy Tool for Root Oriented Tunneling - A RED TEAMING TOOL")
+            print("\n\n\n\n")
+            for j in animation[i].split("\n"):
+                print("     "*lateral_shift + j)
+            print("\n\n\n\n")
+            print(art.text2art("     "*(lateral_shift-5) +
+                               "S T R O T   -   a   R e d   T e a m i n g   T o o l   . . .", ))
             time.sleep(0.2)
             k += 1
     time.sleep(1)
+    os.system("clear")
+    time.sleep(0.1)
+    _zoom_in(zoom_ratio)
+    print("starting STROT CLI v2.1.3")
+    print("Stealthy Tool for Root Oriented Tunneling - A RED TEAMING TOOL")
+    time.sleep(2)
     obj = STROTCLI()
