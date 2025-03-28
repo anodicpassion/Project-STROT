@@ -1,15 +1,13 @@
-#!/usr/bin/python3
+__about__: dict = {"Exploit_Title": "vsftpd 2.3.4 - Backdoor Command Execution",
+                   "Date": "9-04-2021",
+                   "Version": "vsftpd 2.3.4",
+                   "Tested_on": "debian",
+                   "CVE": "CVE-2011-2523"
+                   }
 
 from telnetlib import Telnet
 from signal import signal, SIGINT
 from sys import exit
-
-about: dict = {"Exploit_Title": "vsftpd 2.3.4 - Backdoor Command Execution",
-               "Date": "9-04-2021",
-               "Version": "vsftpd 2.3.4",
-               "Tested_on": "debian",
-               "CVE": "CVE-2011-2523"
-               }
 
 
 def handler(signal_received, frame):

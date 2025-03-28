@@ -3,8 +3,8 @@ import tensorflow as tf
 
 class STROTIntelli:
     def __init__(self, ) -> None:
-        self.__loss = None
-        self.__optimizer = None
+        self.__loss = tf.keras.losses.SGD
+        self.__optimizer = tf.keras.optimizers.Adam()
         self.__model = None
 
     def build(self) -> None:
